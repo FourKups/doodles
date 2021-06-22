@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'rest_framework',
 
     'login'
@@ -128,12 +129,31 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+DEFAULT_FILE_STORAGE = 'login.backend.AzureMediaStorage'
+STATICFILES_STORAGE = 'login.backend.AzureStaticStorage'
 
+AZURE_STORAGE_KEY = os.environ.get(
+    'ftiP4HCh/hYCrDWjpI1XZZY7ClboEHdaW8UEqXLsrjtUh5PJu/qBf6cfcZh4t4Pb0vE3/8iEf9wI2318BDdIhQ==', False)
+AZURE_ACCOUNT_NAME = "doodleapp"  # your account name
+AZURE_MEDIA_CONTAINER = os.environ.get('AZURE_MEDIA_CONTAINER', 'media')
+AZURE_STATIC_CONTAINER = os.environ.get('AZURE_STATIC_CONTAINER', 'static')
+
+# AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.azureedge.net'  # CDN URL
+# Files URL
+#AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+STATIC_URL = f'https://doodleapp.blob.core.windows.net/static'
+MEDIA_URL = f'https://doodleapp.blob.core.windows.net/media'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# any static paths you want to publish
+
+'''
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')'''
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
