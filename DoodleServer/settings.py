@@ -72,17 +72,26 @@ WSGI_APPLICATION = 'DoodleServer.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+#postgres://sivappriyan@oscillation:Oscillation@22@oscillation.postgres.database.azure.com
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'doodle',
+        #'USER': 'postgres',
+        #'PASSWORD': '1234',
+        #'HOST': 'localhost',
+        #'PORT': '5432',
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'doodle',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'USER': 'sivappriyan@oscillation',
+        'PASSWORD': 'Oscillation@22',
+        'HOST': 'oscillation.postgres.database.azure.com',
         'PORT': '5432',
+        'OPTIONS': {
+                'sslmode': 'require',
+            },
     }
 }
 
@@ -121,6 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
