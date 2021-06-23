@@ -6,5 +6,7 @@ router = routers.DefaultRouter()
 #router.register(r'heroes', views.HeroViewSet)
 urlpatterns = [
     path('', include(router.urls)),
-    path('login',views.login,name="login or register")
+    path('login',views.login,name="login or register"),
+    path('post',views.post,name="Post"),
+    path('getpost',views.getpost,name="get Post")
 ]
