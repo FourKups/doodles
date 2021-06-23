@@ -12,5 +12,5 @@ class GUser(models.Model):
 class Post(models.Model):
     PostId = models.AutoField(primary_key=True)
     GmailId = models.EmailField()
-    File=models.FileField()
+    File=models.ImageField()
     Likes=models.IntegerField()
