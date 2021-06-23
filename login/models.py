@@ -14,3 +14,5 @@ class Post(models.Model):
     GmailId = models.EmailField()
     File=models.ImageField()
     Likes=models.IntegerField()
+    def __str__(self):
+         return self.PostId

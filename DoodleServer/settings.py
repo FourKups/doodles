@@ -141,8 +141,8 @@ AZURE_STATIC_CONTAINER ='static'
 # Files URL
 #AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 
-STATIC_URL = f'https://doodleapp.blob.core.windows.net/static'
-MEDIA_URL = f'https://doodleapp.blob.core.windows.net/media'
+STATIC_URL = f'https://doodleapp.blob.core.windows.net/static/'
+MEDIA_URL = f'https://doodleapp.blob.core.windows.net/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # any static paths you want to publish
